@@ -1,0 +1,56 @@
+
+public class Calc {
+	
+	private int someInt = 6;
+	
+	private static int someStaticInt = 8;
+	
+	public void greet() {
+		System.out.println("Hello World!!!");
+	}
+	
+	public static int sum(int a, int b) {
+		return a + b + someStaticInt;
+	}
+	public int sudeti(int a, int b) {
+		return a + b + someInt;
+	}
+	
+	public int atimtis(int a, int b) {
+		return a - b;
+	}
+	public int skirtumas(int a, int b) {
+		return a > b ? a - b : b - a;
+	}
+	public int multiply(int a, int b) {
+		return a * b;
+	}
+	public float divide(int a, int b) {
+		return a * b * 1f;
+	}
+	
+	public float smagu(int a, int b, int c) {
+		
+		return c != 0 ? ((a + b) / c) : 0;
+	}
+	
+	public int int1() {
+		return 1;
+	}
+	public int int2() {
+		return 2;
+	}
+	public int int3() {
+		return 3;
+	}
+	public int int4() {
+		return 4;
+	}
+	public int int5() {
+		return 5;
+	}
+	
+	
+
+
+}

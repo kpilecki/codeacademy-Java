@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		Person obj = new Person();
+		obj.setName("Jonas");
+		
+		try {
+			obj.setAge(-20);
+		} catch (IllegalArgumentException e) {
+			System.out.println("IllegalArgumentException: " + e.getMessage());
+		}
+		
+		try {
+			Person obj3 = new Person("" , -20);
+		} catch (IllegalArgumentException e) {
+			System.out.println("illegalArgumentException: " + e.getMessage());
+		}
+		
+		Person obj2 = new Person();
+		obj2.setName("Antanas");
+		obj2.sayHi();
+		
+		System.out.println(obj.getName());
+		System.out.println(obj2.getName());
+	}	
+
+}

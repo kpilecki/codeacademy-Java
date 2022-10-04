@@ -1,0 +1,19 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		Account acc = new Account("LT 01 01 02");
+		acc.setAmount(20);
+		
+		System.out.println(Account.getCounter());
+
+		Account acc2 = new Account("LT 01 01 02");
+		acc.setAmount(20);
+		
+		Account acc3 = new Account("LT 01 01 02");
+		acc.setAmount(20);
+		
+		System.out.println(Account.getCounter());
+	}
+
+}

@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		Person obj = new Person();
+		obj.setName("John");
+		
+		Person obj2 = new Person();
+		obj2.setName("Antanas");
+		
+		System.out.println(obj.getName());
+		System.out.println(obj2.getName());
+	}	
+
+}

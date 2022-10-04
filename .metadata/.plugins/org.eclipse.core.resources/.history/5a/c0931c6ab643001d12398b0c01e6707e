@@ -1,0 +1,20 @@
+import java.util.*;
+public class SeptintaPaskaita {
+	
+	public static void printMedziaga() {
+		
+		int a = Integer.parseInt("1243");
+	
+		int[] arr = {1, 2, 343, 43, 22, 2121, 213, 21};
+		int[] arr2 = arr;
+	
+		Arrays.sort(arr);
+		
+		Utils.printArr(arr);
+		Utils.printArr(arr2);
+		
+	
+	
+	}
+
+}

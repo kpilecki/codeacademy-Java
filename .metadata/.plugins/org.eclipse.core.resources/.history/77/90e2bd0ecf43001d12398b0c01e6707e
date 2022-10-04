@@ -1,0 +1,21 @@
+public class Program {
+
+	public static void main(String[] args) {
+
+		//SeptintaPaskaita.printMedziaga();
+		
+		Diena obj = Diena.PIRMADIENIS;
+		
+		System.out.println(obj.numToEnum(1));
+		System.out.println(obj.numToEnum(2));
+		System.out.println(obj.numToEnum(3));
+		System.out.println(obj.numToEnum(4));
+		System.out.println(obj.numToEnum(5));
+		System.out.println(obj.numToEnum(6));
+		System.out.println(obj.numToEnum(7));
+		System.out.println(Diena.PIRMADIENIS.ordinal());
+		
+
+	}
+
+}

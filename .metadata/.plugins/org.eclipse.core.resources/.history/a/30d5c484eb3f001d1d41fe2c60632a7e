@@ -1,0 +1,19 @@
+
+public class KetvirtaPaskaitaUzduotys {
+	
+	static String cleanUp(String in) {
+		
+		return in.replaceAll("\\s+", " ").trim();
+
+	}
+	static String cleanUp2(String in) {
+		
+		in = in.trim();
+		while(in.contains("  ")) {
+			in = in.replace("  " , " ");
+		}
+		return in;
+
+	}
+	
+}

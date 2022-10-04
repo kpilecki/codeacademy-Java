@@ -1,0 +1,15 @@
+
+public enum MeasurmentUnits {
+	MILE,
+	KILOMETER,
+	METER,
+	DECIMETER,
+	CENTIMETER,
+	MILIMETER,
+	MICROMETER,
+	NANOMETER,
+	FOOT,
+	INCH,
+	YARD
+
+}

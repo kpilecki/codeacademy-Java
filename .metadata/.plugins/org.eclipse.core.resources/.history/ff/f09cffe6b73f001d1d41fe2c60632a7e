@@ -1,0 +1,8 @@
+
+public class Calc {
+	
+	public void greet() {
+		System.out.println("Hello World!!!");
+	}
+
+}

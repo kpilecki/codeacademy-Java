@@ -1,0 +1,35 @@
+
+public class TreciaPaskaita {
+	
+	public static void loops() {
+		
+		// Atspaudinti skaiciu nuo 0 iki 5
+		
+		int i = 0;
+		
+		while(i <= 5) {
+			System.out.println(i++);
+		}
+		while(i > 1) {
+			i--;
+			System.out.println("Labas Rytas");
+		}
+		
+		i=0;
+		
+		while(i <= 20) {
+			System.out.println( i );
+			i +=2;
+		}
+		
+		i=0;
+		
+		do {
+			System.out.println( i += 2 );
+		}
+		while( i < 20);
+		
+		
+	}
+
+}

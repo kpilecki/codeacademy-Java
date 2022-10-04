@@ -1,0 +1,22 @@
+
+public class Staciakampis {
+	private float width;
+	private float length;
+	
+	public Staciakampis(float width, float length) {
+		this.width = width;
+		this.length = length;
+	}
+	public float getWidth() {
+		return width;
+	}
+	public float getLength() {
+		return length;
+	}
+	public float area() {
+		return width * length;
+	}
+	public float perimeter() {
+		return 2 * (width + length);
+	}
+}

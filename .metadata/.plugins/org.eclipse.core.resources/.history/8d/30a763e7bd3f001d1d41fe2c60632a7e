@@ -1,0 +1,13 @@
+
+public class App {
+
+	public static void main(String[] args) {
+		Calc obj = new Calc();
+		obj.greet();
+		
+		System.out.println(Calc.sum(3, 4));
+		System.out.println(obj.sudeti(5, 6));
+		
+	}	
+
+}

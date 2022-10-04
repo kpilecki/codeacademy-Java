@@ -1,0 +1,29 @@
+
+public class Account {
+	private int amount = 0;
+	private final String name;
+	
+	static int counter = 0;
+	
+	public Account(String name) {
+		this.name = name;
+		counter++;
+	}
+	
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+	public String getName() {
+		return name;
+	}
+	
+	public int getCounter() {
+		return counter;
+	}
+
+	
+
+}

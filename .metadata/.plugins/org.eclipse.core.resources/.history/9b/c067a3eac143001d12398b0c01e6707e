@@ -1,0 +1,22 @@
+public class Program {
+
+	public static void main(String[] args) {
+
+		//SeptintaPaskaita.printMedziaga();
+		
+		UOM testUOM = UOM.CENTIMETER;
+		
+		System.out.println(UOM.KILOMETER.convertAndToString(5.0f));
+		
+		System.out.println(UOM.METER.convertAndToString(5.0f));
+		
+		System.out.println(UOM.DECIMETER.convertAndToString(5.0f));
+		
+		System.out.println(testUOM.convertAndToString(5.0f));
+		
+		System.out.println(UOM.MILIMETER.convertAndToString(5.0f));
+		
+
+	}
+
+}

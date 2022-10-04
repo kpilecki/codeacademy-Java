@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Calc obj = new Calc();
+		obj.greet();
+		
+		System.out.println(Calc.sum(3, 4));
+		System.out.println(obj.sudeti(5, 6));
+		
+		
+		float rez = obj.smagu(sc.nextInt(), sc.nextInt(), sc.nextInt());
+		
+		
+		sc.close();
+	}	
+
+}

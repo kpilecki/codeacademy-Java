@@ -1,0 +1,63 @@
+import java.util.*;
+public class SeptintaPaskaita {
+	
+	public static void printMedziaga() {
+		
+		int a = Integer.parseInt("1243");
+	
+		int[] arr = {1, 2, 343, 43, 22, 2121, 213, 21};
+		int[] arr2 = arr;
+	
+		Arrays.sort(arr);
+		
+		Utils.printArr(arr);
+		Utils.printArr(arr2);
+		
+		// ENUMS
+		
+		Diena siandien = Diena.ANTRADIENIS;
+	
+		
+		Diena kazkokiaDiena = Diena.TRECIADIENIS;
+		
+		if(siandien == Diena.ANTRADIENIS) {
+			System.out.println("Siandien Antradienis");
+		}
+		
+		switch(siandien) {
+		case PIRMADIENIS:
+			System.out.println("Siandien Pirmadienis Savaites Diena: " + siandien.kelintaDiena);
+			break;
+		case ANTRADIENIS:
+			System.out.println("Siandien Antradienis Savaites Diena:  " + siandien.kelintaDiena);
+			break;
+		case KETVIRTADIENIS:
+			System.out.println("Siandien Ketvirtadienis Savaites Diena:  " + siandien.kelintaDiena);
+			break;
+		case PENKTADIENIS:
+			System.out.println("Siandien Penktadienis Savaites Diena:  " + siandien.kelintaDiena);
+			break;
+		case SEKMADIENIS:
+			System.out.println("Siandien Sekmadienis Savaites Diena:  " + siandien.kelintaDiena);
+			break;
+		case SESTADIENIS:
+			System.out.println("Siandien Sestadienis Savaites Diena:  " + siandien.kelintaDiena);
+			break;
+		case TRECIADIENIS:
+			System.out.println("Siandien Treciadienis Savaites Diena:  " + siandien.kelintaDiena);
+			break;
+		default:
+			break;
+		}
+		
+		if(siandien.savaitgalis) {
+			System.out.println("Valio!");
+		} else {
+			System.out.println("Velnias");
+		}
+		
+	
+	
+	}
+
+}
