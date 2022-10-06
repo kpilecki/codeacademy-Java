@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class UzduotysArrayList {
 	public static void uzduotis1() {
-		Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner( System.in );
 		ArrayList<String> strList = new ArrayList<>();
 		
 		while( true ) {
@@ -18,14 +18,14 @@ public class UzduotysArrayList {
 			if( strList.size() == 5 ) {
 				strList.clear();
 			}
-			if( strList.contains(temp) ) {
+			if( strList.contains( temp ) ) {
 				System.out.println("This word already exists");
 				continue;
 			} else {
-				strList.add(temp);
+				strList.add( temp );
 			}
 		}
-		System.out.println(strList);
+		System.out.println( strList );
 		sc.close();
 	}
 	

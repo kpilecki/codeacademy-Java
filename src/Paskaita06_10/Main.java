@@ -19,8 +19,8 @@ public class Main {
 //		Medziaga.regexMedziaga();
 //		Medziaga.collectionsMedziaga();
 //		UzduotysArrayList.uzduotis1();
-//		UzduotysArrayList.uzduotis2(strList);
-		System.out.println(UzduotysArrayList.uzduotis3(strList));
+//		UzduotysArrayList.uzduotis2( strList );
+		System.out.println(UzduotysArrayList.uzduotis3( strList ));
 	}
 
 }
