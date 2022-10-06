@@ -1,7 +1,0 @@
-INDEX VERSION 1.131+C:\Users\chris\CodeAcademy\codeacademy-Java\.metadata\.plugins\org.eclipse.jdt.core
-2441938283.index
-3597666814.index
-1865797976.index
-876553075.index
-2354417741.index
-3228707176.index
