@@ -42,12 +42,10 @@ public class Asmuo {
 	public String toString() {
 		return vardas + " " + pavarde ;
 	}
-
 	@Override
 	public int hashCode() {
-		return Objects.hash(asmKodas);
+		return Objects.hash(asmKodas, pavarde, vardas);
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -57,19 +55,51 @@ public class Asmuo {
 		if (getClass() != obj.getClass())
 			return false;
 		Asmuo other = (Asmuo) obj;
-		return Objects.equals(asmKodas, other.asmKodas);
+		return Objects.equals(asmKodas, other.asmKodas) && Objects.equals(pavarde, other.pavarde)
+				&& Objects.equals(vardas, other.vardas);
 	}
-	
-	public static ArrayList<Asmuo> searchByName(ArrayList<Asmuo> list, String vardas){
-		ArrayList<Asmuo> sarasas = new ArrayList<>();
+
+	public ArrayList<Asmuo> findAllMatchesByName( ArrayList<Asmuo> list){
 		ArrayList<Asmuo> temp = new ArrayList<>();
-		sarasas.addAll(list);
-		
-		
-		
+		for( Asmuo a : list ) {
+			if( a.getVardas().equals( this.vardas ) ){
+				temp.add( a );
+			}
+		}
+		return temp;
 	}
 	
+	public static ArrayList<Asmuo> findAllByName( ArrayList<Asmuo> list, String vardas ){
+		ArrayList<Asmuo> temp = new ArrayList<>();
+		for( Asmuo a : list ) {
+			if( a.getVardas().equals( vardas ) ){
+				temp.add( a );
+			}
+		}
+		return temp;
+	}
 	
+	public static Asmuo searchArrByAsmKodas( ArrayList<Asmuo> list, String asmKodas ){
+		
+		for( Asmuo a : list ) {
+			if( a.getAsmKodas().equals( asmKodas ) ){
+				return a;
+			}
+		}
+		return null;
+	}
+	
+	public static ArrayList<Asmuo> findAllContainValue( ArrayList<Asmuo> list, String value ){
+		ArrayList<Asmuo> temp = new ArrayList<>();
+		for( Asmuo a : list ) {
+			if( a.getVardas().contains(value)
+				|| a.getPavarde().contains(value)
+				|| a.getAsmKodas().contains(value)){
+					temp.add( a );
+			}
+		}
+		return temp;
+	}
 	
 	
 	
