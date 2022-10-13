@@ -17,12 +17,12 @@ public class Programa {
 		int choice = 0;
 		Biudzetas bud = new Biudzetas();
 		
-		while( choice != 5 ) {
+		while( choice != 8 ) {
 			printMenu();
 			try {
 				choice = sc.nextInt();
 			} catch ( InputMismatchException e ) {
-				System.out.println( "Ivesti galima tik skaiciu nuo 1 iki 5");
+				System.out.println( "Ivesti galima tik skaiciu nuo 1 iki 8");
 				sc.next();
 				continue;
 			}
@@ -39,12 +39,81 @@ public class Programa {
 				break;
 			case 4:
 				isvestiIslaidas( bud );
+				break;
+			case 5:
+				isvestiBalansa( bud );
+				break;
+			case 6:
+				parodytiRedaguotiPajamas( bud, sc );
+				break;
+			case 7:
+				parodytiRedaguotiIslaidas( bud, sc );
+				break;
 				
 			}
 		}
 		System.out.println( "Programa baige darba sekmingai" );
 	}
 	
+	private static void parodytiRedaguotiIslaidas(Biudzetas bud, Scanner sc) {
+		String choice = "";
+		while( true ) {
+			int counter = 0;
+			System.out.println("Nr. |       Data       | Suma | Atsiskaitymo Budas "
+					+ "| Banko Kortele | Kategorija | Papildoma Info");
+			for ( IslaiduIrasas irasas : bud.gautiIslaiduSarasa() ) {
+				System.out.println( "[" + counter + "] | " + irasas );
+				counter++;
+			}
+			
+			System.out.print( "\n Iveskite numeri iraso kuri norite istrinti arba raide kad grizti: " );
+			sc.next();
+			choice = sc.nextLine();
+			try {
+				int index = Integer.parseInt( choice );
+				bud.gautiIslaiduSarasa().remove( index );
+			} catch (NumberFormatException e) {
+				return;
+			} catch (IndexOutOfBoundsException e) {
+				System.out.println( "\nBlogai ivestas skaicius bandykite dar");
+				continue;
+			}	
+		}
+		
+		
+	}
+
+	private static void parodytiRedaguotiPajamas( Biudzetas bud, Scanner sc ) {
+		String choice = "";
+		while( true ) {
+			int counter = 0;
+			System.out.println("Nr. |    Data    | Suma | Kategorija | Pozymis | Papildoma Info");
+			for ( PajamuIrasas irasas : bud.gautiPajamuSarasa() ) {
+				System.out.println( "[" + counter + "] | " + irasas );
+				counter++;
+			}
+			
+			System.out.print( "\n Iveskite numeri iraso kuri norite istrinti arba raide kad grizti: " );
+			sc.next();
+			choice = sc.nextLine();
+			try {
+				int index = Integer.parseInt( choice );
+				bud.gautiPajamuSarasa().remove( index );
+			} catch (NumberFormatException e) {
+				return;
+			} catch (IndexOutOfBoundsException i) {
+				System.out.println( "\nBlogai ivestas skaicius bandykite dar");
+				continue;
+			}	
+		}
+		
+	}
+
+	private static void isvestiBalansa(Biudzetas bud) {
+		System.out.println( "\nJusu balansas: " + bud.balansas());
+		
+	}
+
 	private static void isvestiIslaidas(Biudzetas bud) {
 		System.out.println( "\nJusu islaidu suma: " + bud.gautiIslaiduSuma() );
 		
@@ -60,7 +129,10 @@ public class Programa {
 					+ "[2] - Ivesti Islaidas\n" 
 					+ "[3] - Parodyti Pajamas\n" 
 					+ "[4] - Parodyti Islaidas\n" 
-					+ "[5] - Baigti Darba\n");
+					+ "[5] - Isvesti Balansa\n"
+					+ "[6] - Parodyti Arba Redaguoti Pajamu Irasus\n"
+					+ "[7] - Parodyti Ir Redaguoti Islaidu Irasus\n"
+					+ "[8] - Baigti Darba\n");
 			
 			
 		}
@@ -79,7 +151,7 @@ public class Programa {
 			return;
 		}
 		sc.nextLine();
-		System.out.println( "Iveskite pajamu kategorija: ");
+		System.out.print( "Iveskite pajamu kategorija: ");
 		temp.setKategorijosIndeksas( sc.nextLine() );
 		
 		System.out.print( "Iveskite pajamu pozymi: ");
@@ -117,6 +189,9 @@ public class Programa {
 		
 		System.out.print( "Iveskite atsiskaitymo buda: ");
 		temp.setAtsiskaitymoBudas( sc.nextLine() );
+		
+		System.out.print( "Iveskite banko korteles numeri: ");
+		temp.setBankoKortele( sc.nextLine() );
 		
 		System.out.print( "Iveskite papildoma informacija: ");
 		temp.setPapildomaInfo( sc.nextLine() );

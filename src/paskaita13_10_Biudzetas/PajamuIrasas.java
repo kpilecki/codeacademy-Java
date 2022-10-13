@@ -22,6 +22,16 @@ public class PajamuIrasas extends Irasas{
 	public void setData(LocalDate data) {
 		this.data = data;
 	}
+
+	@Override
+	public String toString() {
+		return  data 
+				+ " | " + suma 
+				+ " | " + kategorijosIndeksas
+				+ " | " + pozymis 
+				+ " | " + papildomaInfo;
+	}
+	
 	
 	
 }

@@ -1,6 +1,7 @@
 package paskaita13_10_Biudzetas;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class IslaiduIrasas extends Irasas{
 	String atsiskaitymoBudas = "";
@@ -29,6 +30,18 @@ public class IslaiduIrasas extends Irasas{
 	public void setData(LocalDateTime data) {
 		this.data = data;
 	}
+
+	@Override
+	public String toString() {
+		
+		return 	data.toString().substring( 0, 16 ).replace( "T", " " )
+				+ " | " + suma 
+				+ " | " + atsiskaitymoBudas 
+				+ " | " + bankoKortele 
+				+ " | " + kategorijosIndeksas 
+				+ " | "+ papildomaInfo;
+	}
+	
 	
 	
 	

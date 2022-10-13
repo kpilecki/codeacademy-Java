@@ -2,37 +2,31 @@ package paskaita13_10_Biudzetas;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class Biudzetas {
-	PajamuIrasas[] pajamos = new PajamuIrasas[100];
-	IslaiduIrasas[] islaidos = new IslaiduIrasas[100];
-	int pajamosCounter = 0;
-	int islaidosCounter = 0;
+	ArrayList<PajamuIrasas> pajamos = new ArrayList<>();
+	ArrayList<IslaiduIrasas> islaidos = new ArrayList<>();
 	
 	public Biudzetas() {}
 	
 	public void pridePajamuIrasa( PajamuIrasas irasas ) {
-		if( pajamosCounter < pajamos.length ) {
-			pajamos[ pajamosCounter ] = irasas;
-			pajamosCounter++;
-		} else {
-			throw new IndexOutOfBoundsException( "Pajamu sarasas pilnas");
+		if( irasas != null ) {
+			pajamos.add( irasas );
 		}
 	}
+	
 	public void pridetiIslaiduIrasa( IslaiduIrasas irasas ) {
-		if( islaidosCounter < islaidos.length ) {
-			islaidos[ islaidosCounter ] = irasas;
-			islaidosCounter++;
-		} else {
-			throw new IndexOutOfBoundsException( "Islaidu sarasas pilnas");
+		if( irasas != null ) {
+			islaidos.add( irasas );
 		}
 	}
+	
 	public PajamuIrasas gautiPajamuIrasa( String kategorija, LocalDate data,
 					 String pozymis, String papildomaInfo) {
 		
-		for( int i = 0; i <= pajamosCounter; i++) {
-			PajamuIrasas temp = pajamos[ i ];
-			
+		for( PajamuIrasas temp : pajamos ) {
+
 			if( temp.getKategorijosIndeksas().equals( kategorija ) 
 					&& temp.getData().equals( data ) 
 					&& ( temp.getPozymis().contains( pozymis ) 
@@ -42,11 +36,11 @@ public class Biudzetas {
 		}
 		return null;
 	}
+	
 	public IslaiduIrasas gautiIslaiduIrasa( String kategorija, LocalDateTime data,
 				String atsiskaitymoBudas, String bankoKortele) {
 		
-		for( int i = 0; i <= islaidosCounter; i++) {
-			IslaiduIrasas temp = islaidos[ i ];
+		for( IslaiduIrasas temp : islaidos ) {
 			
 			if( temp.getKategorijosIndeksas().equals( kategorija ) 
 					&& temp.getData().equals( data ) 
@@ -57,21 +51,35 @@ public class Biudzetas {
 		}
 		return null;
 	}
+	
 	public double gautiPajamuSuma() {
 		double sum = 0;
 		
-		for(int i = 0; i < pajamosCounter; i++ ) {
-			sum += pajamos[ i ].getSuma(); 
+		for( PajamuIrasas el : pajamos ) {
+			sum += el.getSuma(); 
 		}
 		return sum;
 	}
+	
 	public double gautiIslaiduSuma() {
 		double sum = 0;
 		
-		for(int i = 0; i < islaidosCounter; i++ ) {
-			sum += islaidos[i].getSuma();
+		for(IslaiduIrasas el : islaidos ) {
+			sum += el.getSuma();
 		}
 		return sum;
+	}
+	
+	public double balansas() {
+		return gautiPajamuSuma() - gautiIslaiduSuma();
+	}
+	
+	public ArrayList<PajamuIrasas> gautiPajamuSarasa(){
+		return pajamos;
+	}
+	
+	public ArrayList<IslaiduIrasas> gautiIslaiduSarasa(){
+		return islaidos;
 	}
 
 	
