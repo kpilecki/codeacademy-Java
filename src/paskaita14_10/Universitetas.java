@@ -1,6 +1,7 @@
 package paskaita14_10;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class Universitetas {
 	ArrayList<Studentas> studentai = new ArrayList<>();
@@ -10,10 +11,18 @@ public class Universitetas {
 		studentai.add( studentas );
 	}
 	
-	public void spausdinkSarasa() {
-		studentai.forEach( v -> {
-			System.out.println( v );
-		});
+	public Collection<Studentas> getAllStudents(){
+		return this.studentai;
+	}
+	
+	public Collection<Studentas> getListApproved( int balas ){
+		ArrayList<Studentas> temp = new ArrayList<>();
+		for( Studentas s : studentai ) {
+			if( s.getBalas() >= balas ) {
+				temp.add( s );
+			}
+		}
+		return temp;
 	}
 	
 	//Dummy data

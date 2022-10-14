@@ -1,5 +1,6 @@
 package paskaita14_10;
 
+import java.util.Collection;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -38,5 +39,12 @@ public class Utils {
 	        return false;
 	    }
 	    return pattern.matcher(eilute).matches();
+	}
+	
+	
+	public static void printList( Collection<Studentas> list ) {
+		list.forEach( v -> {
+			System.out.println( v );
+		});
 	}
 }

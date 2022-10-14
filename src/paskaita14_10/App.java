@@ -6,10 +6,12 @@ public class App {
 	public static void main(String[] args) {
 		Universitetas uni = new Universitetas();
 		uni.generuok();
-		uni.spausdinkSarasa();
+		Utils.printList( uni.getAllStudents() );
 	
-		int balas = Utils.nextInt( "\nIveskite praejimo bala (50-99)" );
+		int balas = Utils.nextInt( Messages.MSG_TRESHHOLD );
+		System.out.println( "Ivestas praejimo balas " + balas );
 		
+		Utils.printList( uni.getListApproved( balas ));
 		
 		Utils.closeScanner();
 	}
