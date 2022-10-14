@@ -3,35 +3,36 @@ package paskaita13_10_Biudzetas;
 import java.time.LocalDate;
 
 public class PajamuIrasas extends Irasas{
-	String pozymis = "";
-	LocalDate data = LocalDate.now();
-	
-	public PajamuIrasas() {}
+	private String pozymis = "";
+	private LocalDate data = LocalDate.now();
 
 	public String getPozymis() {
 		return pozymis;
 	}
-	public void setPozymis(String pozymis) {
-		this.pozymis = pozymis;
+	
+	public void setPozymis( String pozymis ) {
+		if( pozymis != null ) {
+			this.pozymis = pozymis;
+		}
 	}
 
 	public LocalDate getData() {
 		return data;
 	}
 
-	public void setData(LocalDate data) {
-		this.data = data;
+	public void setData( LocalDate data ) {
+		if( data != null ) {
+			this.data = data;
+		}
 	}
 
 	@Override
 	public String toString() {
-		return  data 
+		return  "[" + super.getId() + "] | "
+				+ data 
 				+ " | " + suma 
 				+ " | " + kategorijosIndeksas
 				+ " | " + pozymis 
 				+ " | " + papildomaInfo;
 	}
-	
-	
-	
 }
