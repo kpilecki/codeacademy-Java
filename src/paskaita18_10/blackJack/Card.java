@@ -19,6 +19,10 @@ public class Card {
 	public int getValue() {
 		return value;
 	}
+	
+	public boolean isAce() {
+		return symbol.equals( Symbol.Ace );
+	}
 
 
 	
