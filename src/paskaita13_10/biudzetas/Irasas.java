@@ -11,6 +11,14 @@ public class Irasas {
 	public Irasas() {
 		this.id = IdGenerator.getId();
 	}
+
+	public String toCSV(){
+		return id
+				+ "," + suma
+				+ "," + kategorijosIndeksas
+				+ "," + papildomaInfo
+				+ "\n";
+	}
 	
 	public int getId() {
 		return this.id;

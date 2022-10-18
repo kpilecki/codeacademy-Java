@@ -1,5 +1,12 @@
 package paskaita13_10.biudzetas;
 
+import javax.tools.StandardJavaFileManager;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -169,5 +176,31 @@ public class IrasasMenus {
 				return;
 			}	
 		}	
+	}
+
+	public void issaugotiIrasus(Biudzetas bud, Scanner sc) {
+		System.out.println("Iveskite kur issaugoti irasa");
+		sc.nextLine();
+		String temp = sc.nextLine() + "irasai.csv";
+		Path path = Paths.get("");
+		try {
+			path = Paths.get(temp);
+		} catch (InvalidPathException e) {
+			System.out.println("Ivestas blogas kelias");
+			return;
+		}
+		File csvFile = new File(path.toUri());
+		try {
+			FileWriter fileWriter = new FileWriter(csvFile);
+			fileWriter.write(bud.toCSV());
+			fileWriter.close();
+			System.out.println("Irasyta Sekmingai");
+		} catch (IOException e) {
+			System.out.println("Ivyko klaida");
+			return;
+		}
+	}
+
+	public void uzkrautiIrasus(Biudzetas bud, Scanner sc) {
 	}
 }

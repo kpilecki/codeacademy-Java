@@ -30,7 +30,9 @@ public class ProgramaMenus {
 					+ "[5] - Isvesti Balansa\n"
 					+ "[6] - Parodyti Arba Redaguoti Pajamu Irasus\n"
 					+ "[7] - Parodyti Ir Redaguoti Islaidu Irasus\n"
-					+ "[8] - Baigti Darba\n");		
+					+ "[8] - Issaugoti irasus\n"
+					+ "[9] - Uzkrauti irasus\n"
+					+ "[0] - Baigti Darba\n");
 		}
 
 	public void ivestiPajamasForm( Biudzetas bud, Scanner sc ) {

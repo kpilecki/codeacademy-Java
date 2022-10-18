@@ -119,4 +119,12 @@ public class Biudzetas {
 		return null;
 	}
 
+	public String toCSV(){
+		StringBuilder temp = new StringBuilder();
+		irasai.forEach( v -> {
+			temp.append( v.toCSV() );
+		});
+		return temp.toString();
+	}
+
 }

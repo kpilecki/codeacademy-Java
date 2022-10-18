@@ -7,6 +7,17 @@ public class IslaiduIrasas extends Irasas{
 	private String bankoKortele = "";
 	private LocalDateTime data = LocalDateTime.now();
 
+	public String toCSV(){
+		return id
+				+ "," + suma
+				+ "," + kategorijosIndeksas
+				+ "," + papildomaInfo
+				+ "," + atsiskaitymoBudas
+				+ "," + bankoKortele
+				+ "," + data
+				+ "\n";
+	}
+
 	public String getAtsiskaitymoBudas() {
 		return atsiskaitymoBudas;
 	}

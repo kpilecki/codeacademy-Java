@@ -6,6 +6,15 @@ public class PajamuIrasas extends Irasas{
 	private String pozymis = "";
 	private LocalDate data = LocalDate.now();
 
+	public String toCSV(){
+		return id
+				+ "," + suma
+				+ "," + kategorijosIndeksas
+				+ "," + papildomaInfo
+				+ "," + pozymis
+				+ "," + data
+				+ "\n";
+	}
 	public String getPozymis() {
 		return pozymis;
 	}
