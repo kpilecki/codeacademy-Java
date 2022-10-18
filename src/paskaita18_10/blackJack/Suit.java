@@ -2,8 +2,8 @@ package paskaita18_10.blackJack;
 
 public enum Suit {
 	Hearts('♥'), //Sirdys
-	Clubs('♣'),	//Kryziai
 	Diamonds('♦'), //Bugnai
+	Clubs('♣'),	//Kryziai
 	Spades('♠'); //Vynai
 	
 	char c;

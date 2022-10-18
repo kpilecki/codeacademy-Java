@@ -6,13 +6,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		Character a = '♥';
-		
-		ArrayList<Card> deck = Utils.getSortedDeck();
-		
-		Utils.printDeck( deck );
-		
+		new GM().start();
+
 	}
 
 }
