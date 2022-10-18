@@ -43,8 +43,7 @@ public class Lektuvas {
 		} finally {
 			System.out.println( "INFO: lektuvas skrenda" );
 		}
-		
-		
+
 	}
 	
 	private String getSvarbumas( VaziuoklesIsskleidimoKlaida z ) {
