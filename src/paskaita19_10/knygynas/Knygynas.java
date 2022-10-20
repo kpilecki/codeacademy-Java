@@ -15,29 +15,29 @@ public class Knygynas {
 		}
 	}
 	
-	public Knyga getBookByName( String str ) {
+	public Knyga getBookByName( String name ) {
 		return list.stream()
-				.filter( v -> v.getPavadinimas().contains( str ))
+				.filter( v -> v.getPavadinimas().contains( name ))
 				.findFirst()
 				.orElse( null );
 	}
 	
-	public Knyga getBookByAuthor( String str ) {
+	public Knyga getBookByAuthor( String author ) {
 		return list.stream()
-				.filter( v -> v.getAutorius().contains( str ))
+				.filter( v -> v.getAutorius().contains( author ))
 				.findFirst()
 				.orElse( null );
 	}
 	
-	public ArrayList<Knyga> getBooksByName( String str ){
+	public ArrayList<Knyga> getBooksByName( String name ){
 		return list.stream()
-				.filter( v -> v.getPavadinimas().contains( str ))
+				.filter( v -> v.getPavadinimas().contains( name ))
 				.collect( Collectors.toCollection( ArrayList::new ));
 	}
 	
-	public ArrayList<Knyga> getBooksByAuthor( String str ){
+	public ArrayList<Knyga> getBooksByAuthor( String author ){
 		return list.stream()
-				.filter( v -> v.getAutorius().contains( str ))
+				.filter( v -> v.getAutorius().contains( author ))
 				.collect( Collectors.toCollection( ArrayList::new ));
 	}
 	
@@ -61,7 +61,7 @@ public class Knygynas {
 	public ArrayList<Knyga> getAllBooksSortedDesc(){
 		return list.stream()
 				.sorted( Collections.reverseOrder())
-				.collect( Collectors.toCollection( ArrayList::new));
+				.collect( Collectors.toCollection( ArrayList::new ));
 	}
 	
 	public void printKnygynas() {
@@ -86,7 +86,7 @@ public class Knygynas {
 			
 			switch(choice) {
 			case 1:
-				ui.printArray( list, Messages.GET_ALL_BOOKS_MSG);
+				ui.printArray( list, Messages.GET_ALL_BOOKS_MSG );
 				break;
 			case 2:
 				ui.printArray( getAllBooksSortedAsc()
@@ -102,13 +102,13 @@ public class Knygynas {
 				break;
 			case 5:
 				ui.printArray( getBooksByAuthor( 
-						ui.getUserInputStr( Messages.GET_BOOKS_BY_AUTHORS_INPUT_MSG)) 
-						, Messages.GET_BOOKS_BY_AUTHORS_MSG);
+						ui.getUserInputStr( Messages.GET_BOOKS_BY_AUTHORS_INPUT_MSG )) 
+						, Messages.GET_BOOKS_BY_AUTHORS_MSG );
 				break;
 			case 6:
 				ui.printArray( getBooksByName( 
-						ui.getUserInputStr( Messages.GET_BOOKS_BY_NAME_INPUT_MSG))
-						, Messages.GET_BOOKS_BY_NAME_MSG);
+						ui.getUserInputStr( Messages.GET_BOOKS_BY_NAME_INPUT_MSG ))
+						, Messages.GET_BOOKS_BY_NAME_MSG );
 			}
 		}
 		
