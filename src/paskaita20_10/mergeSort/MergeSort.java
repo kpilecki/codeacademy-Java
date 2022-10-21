@@ -11,13 +11,13 @@ public class MergeSort {
 	}
 	
 	public static int[] mergeSort( int[] arr ) {
-		return mergeSort( arr, 0, arr.length );
+		return mergeSort( arr, 0, arr.length - 1 );
 		
 	}
 
 	public static int[] mergeSort(int[] arr, int left, int right) {
 		if( left < right ) {
-			int mid = (left + right -1 ) / 2;
+			int mid = (left + right) / 2;
 			
 			mergeSort( arr, left, mid );
 			mergeSort( arr, mid + 1, right );
@@ -32,14 +32,14 @@ public class MergeSort {
 	
 	public static void merge( int[] arr, int left, int mid, int right ) {
 		// create temp arr to store merged numbers
-		int[] tempArr = new int[ right - left ];
+		int[] tempArr = new int[ right - left + 1 ];
 		
 		int indexL = left; // index for left array
 		int indexR = mid + 1; // index for right array
 		
 		for( int i = 0; i < tempArr.length; i++ ) {
 			// if both left and right halves have numbers
-			if( indexL <= mid && indexR < right ) {
+			if( indexL <= mid && indexR <= right ) {
 				// if element in the left half is smaller add it to the temp array
 				if( arr[ indexL ] <= arr[ indexR ]) {
 					tempArr[ i ] = arr[ indexL ];
@@ -54,7 +54,7 @@ public class MergeSort {
 				tempArr[ i ] = arr[ indexL ];
 				indexL++;
 			// if left half is empty add rest of the elements from the right half
-			} else if( indexR < right ) {
+			} else if( indexR <= right ) {
 				tempArr[ i ] = arr[ indexR ];
 				indexR++;
 			}
