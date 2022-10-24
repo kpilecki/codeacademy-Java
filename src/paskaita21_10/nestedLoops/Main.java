@@ -13,8 +13,6 @@ public class Main {
 		System.out.println();
 		TriangularPattern.printTriangularPatternD( 8 );
 		System.out.println();
-
-		
 	}
 
 }
