@@ -35,20 +35,47 @@ public class Uzduotys {
 		String choice = "";
 		
 		while( true ) {
-			printMenu();
-			choice = sc.nextLine();
-			
-			switch( choice ) {
-			case "A": case "a":
-				printRandNum();
-				break;
-			case "B": case "b":
-				printMultRandNumbers();
-				break;
-			case "E": case "e":
+			if( uzduotis2MainLogic( choice ) ) {
 				return;
 			}
 		}
+	}
+	
+	public static void uzduotis2DoWhile() {
+		String choice = "";
+		
+		do {
+			if( uzduotis2MainLogic( choice ) ) {
+				return;
+			}
+		} while( true );
+	}
+	
+	public static void uzduotis2For() {
+		String choice = "";
+		
+		for( ; ; ) {
+			if( uzduotis2MainLogic( choice ) ) {
+				return;
+			}
+		}
+	}
+	
+	private static boolean uzduotis2MainLogic( String choice ) {
+		printMenu();
+		choice = sc.nextLine();
+		
+		switch( choice ) {
+		case "A": case "a":
+			printRandNum();
+			break;
+		case "B": case "b":
+			printMultRandNumbers();
+			break;
+		case "E": case "e":
+			return true;
+		}
+		return false;
 	}
 	
 	private static void printMultRandNumbers() {
