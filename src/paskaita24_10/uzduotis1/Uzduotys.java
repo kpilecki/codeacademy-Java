@@ -1,5 +1,6 @@
 package paskaita24_10.uzduotis1;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -11,21 +12,22 @@ public class Uzduotys {
 	}
 
 	public static void iveskVardus() {
-		String[] arr = new String[ 10 ];
+		ArrayList<String> arr = new ArrayList<>();
+		int numberOfNamesToEnter = 10;
 		
 		System.out.println( "Iveskite desimt vardu" );
 		
-		for( int i = 0; i < arr.length; i++ ) {
-			arr[ i ] = sc.nextLine();
+		for( int i = 0; i < numberOfNamesToEnter; i++ ) {
+			arr.add( sc.nextLine() );
 		}
 		printArrOfNames( arr );
 	}
 	
-	private static void printArrOfNames( String[] arr ) {
-		for( int i = 0; i < arr.length; i++ ) {
-			System.out.println( arr[ i ].toUpperCase() 
+	private static void printArrOfNames( ArrayList<String> arr ) {
+		for( int i = 0; i < arr.size(); i++ ) {
+			System.out.println( arr.get( i ).toUpperCase() 
 					+ "-"
-					+ arr[ i ].length()
+					+ arr.get( i ).length()
 					+ "-"
 					+ (i + 1) );
 		}
@@ -35,7 +37,7 @@ public class Uzduotys {
 		String choice = "";
 		
 		while( true ) {
-			if( uzduotis2MainLogic( choice ) ) {
+			if( !runChoiceMenu( choice ) ) {
 				return;
 			}
 		}
@@ -45,7 +47,7 @@ public class Uzduotys {
 		String choice = "";
 		
 		do {
-			if( uzduotis2MainLogic( choice ) ) {
+			if( !runChoiceMenu( choice ) ) {
 				return;
 			}
 		} while( true );
@@ -55,35 +57,35 @@ public class Uzduotys {
 		String choice = "";
 		
 		for( ; ; ) {
-			if( uzduotis2MainLogic( choice ) ) {
+			if( !runChoiceMenu( choice ) ) {
 				return;
 			}
 		}
 	}
 	
-	private static boolean uzduotis2MainLogic( String choice ) {
+	private static boolean runChoiceMenu( String choice ) {
 		printMenu();
-		choice = sc.nextLine();
+		choice = sc.nextLine().toUpperCase();
 		
 		switch( choice ) {
-		case "A": case "a":
-			printRandNum();
-			break;
-		case "B": case "b":
-			printMultRandNumbers();
-			break;
-		case "E": case "e":
-			return true;
+			case "A":
+				printRandNum();
+				break;
+			case "B":
+				printMultRandNumbers();
+				break;
+			case "E":
+				return false;
 		}
-		return false;
+		return true;
 	}
 	
 	private static void printMultRandNumbers() {
 		Random rand = new Random();
 		
-		for( int i = 0; i < 10; i++) {
-			System.out.println( rand.nextInt() );
-		}
+		rand.ints( 0, 101)
+			.limit( 10 )
+			.forEach( System.out::println );
 	}
 
 	private static void printRandNum() {
@@ -92,7 +94,7 @@ public class Uzduotys {
 
 	private static void printMenu() {
 		System.out.println( "[A] - Sugeneruoti atsitiktini skaiciu 1-100\n"
-						+ "[B] - Sugeneruoti 10 atsitiktiniu skaiciu\n"
-						+ "[E] - Baigti darba\n");
+						  + "[B] - Sugeneruoti 10 atsitiktiniu skaiciu\n"
+						  + "[E] - Baigti darba\n");
 	}
 }
