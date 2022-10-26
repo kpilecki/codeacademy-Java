@@ -2,6 +2,7 @@ package paskaita26_10.generics;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import paskaita26_10.uzduotis1.Person;
 
@@ -21,6 +22,8 @@ public class Main {
 		
 		ArrayList<Integer> arrList = new ArrayList<>();
 		printList( arrList );
+		
+		
 	}
 	
 	static <T> void genericDisplay( T element ) {
@@ -45,6 +48,11 @@ public class Main {
 	
 	static void printList( List<? extends Number> list ) {
 		
+	}
+	
+	static <T extends Number> void printList3( List<T> list ) {
+		var sum = list.stream().collect( Collectors.summingDouble(null));
+		System.out.println( sum );
 	}
 
 }
