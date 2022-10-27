@@ -15,6 +15,8 @@ public class Main {
 	}
 	
 	
+	
+	
 }
 @FunctionalInterface
 	interface ShortToByte{
