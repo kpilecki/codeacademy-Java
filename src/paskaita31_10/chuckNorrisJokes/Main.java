@@ -17,9 +17,6 @@ public class Main {
 			Joke joke = new ObjectMapper().readValue( url , Joke.class );
 			System.out.println( joke.value );
 			
-			JsonParser parser = new ObjectMapper().createParser( url );
-			parser = parser.readValueAsTree();
-			
 			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
