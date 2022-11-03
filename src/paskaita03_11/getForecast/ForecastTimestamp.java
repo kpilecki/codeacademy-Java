@@ -1,17 +1,17 @@
 package paskaita03_11.getForecast;
 
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
+@Data
 public class ForecastTimestamp {
-	public String forecastTimeUtc;
-	public double airTemperature;
-	public int windSpeed;
-	public int windGust;
-	public int windDirection;
-	public int cloudCover;
-	public int seaLevelPressure;
-	public int relativeHumidity;
-	public double totalPrecipitation;
-	public String conditionCode;
+	protected String forecastTimeUtc;
+	protected double airTemperature;
+	protected int windSpeed;
+	protected int windGust;
+	protected int windDirection;
+	protected int cloudCover;
+	protected int seaLevelPressure;
+	protected int relativeHumidity;
+	protected double totalPrecipitation;
+	protected String conditionCode;
 }

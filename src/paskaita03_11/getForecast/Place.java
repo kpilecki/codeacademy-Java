@@ -1,13 +1,13 @@
 package paskaita03_11.getForecast;
 
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
+@Data
 public class Place {
-	public String code;
-	public String name;
-	public String administrativeDivision;
-    public String country;
-    public String countryCode;
-    public Coordinates coordinates;
+	protected String code;
+	protected String name;
+	protected String administrativeDivision;
+	protected String country;
+	protected String countryCode;
+	protected Coordinates coordinates;
 }

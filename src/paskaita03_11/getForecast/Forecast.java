@@ -3,26 +3,26 @@ package paskaita03_11.getForecast;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
+import lombok.Data;
+
+@Data
 public class Forecast {
-	public Place place;
-	public String forecastType;
-	public String forecastCreationTimeUtc;
-	public ArrayList<ForecastTimestamp> forecastTimestamps;
+	protected Place place;
+	protected String forecastType;
+	protected String forecastCreationTimeUtc;
+	protected ArrayList<ForecastTimestamp> forecastTimestamps;
     
     public ForecastTimestamp getLowestTemp() {
-    	int day = LocalDateTime.now().getDayOfMonth();
-    	return forecastTimestamps.stream()
-    			.filter( v -> Integer.parseInt( v.getForecastTimeUtc().substring( 8, 10 )) == day)
+    	return getFilteredByDayStream()
     			.sorted( (a,b) -> a.getAirTemperature() > b.getAirTemperature() ? 1 : -1 )
     			.findFirst()
     			.orElse( null ); 
     }
     
     public ForecastTimestamp getHighestTemp() {
-    	int day = LocalDateTime.now().getDayOfMonth();
-    	return forecastTimestamps.stream()
-    			.filter( v -> Integer.parseInt( v.getForecastTimeUtc().substring( 8, 10 )) == day)
+    	return getFilteredByDayStream()
     			.sorted( (a,b) -> a.getAirTemperature() > b.getAirTemperature() ? -1 : 1 )
     			.findFirst()
     			.orElse( null ); 
@@ -37,12 +37,15 @@ public class Forecast {
     }
     
     public List<ForecastTimestamp> getAllTodaysTimestamps(){
-    	int day = LocalDateTime.now().getDayOfMonth();
     	int hour = LocalDateTime.now().getHour();
+    	return getFilteredByDayStream()
+    	    	.filter( v -> Integer.parseInt( v.getForecastTimeUtc().substring( 11,13 )) >= hour )
+    	    	.toList();	    	
+    }
+    
+    private Stream<ForecastTimestamp> getFilteredByDayStream(){
+    	int day = LocalDateTime.now().getDayOfMonth();
     	return forecastTimestamps.stream()
-    	    	.filter( v -> Integer.parseInt( v.getForecastTimeUtc().substring( 11,13 )) >= hour 
-    	    	&& Integer.parseInt( v.getForecastTimeUtc().substring( 8, 10 )) == day )
-    	    	.toList();
-    	    	
+    			.filter( v -> Integer.parseInt( v.getForecastTimeUtc().substring( 8, 10 )) == day);
     }
 }

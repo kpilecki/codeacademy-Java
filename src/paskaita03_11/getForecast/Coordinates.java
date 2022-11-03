@@ -1,6 +1,9 @@
 package paskaita03_11.getForecast;
 
+import lombok.Data;
+
+@Data
 public class Coordinates {
-	public double latitude;
-	public double longitude;
+	protected double latitude;
+	protected double longitude;
 }

@@ -19,7 +19,7 @@ public class Messages {
 	public static final String WIND_DIRECTION_WEST = "Vakarų\n";
 	public static final String WIND_DIRECTION_NORTH_WEST = "Šiaurės Vakarų\n";
 	public static final String WIND_DIRECTION_MSG = "Vėjo kryptis: ";
-	public static final String HOUR_MSG = " Valandą: ";
+	public static final String HOUR_MSG = " Valanda: ";
 	public static final String MIN_MSG = "Min: ";
 	public static final String MAX_MSG = "Max: ";
 	public static final String NOW_MSG = "Dabar ";

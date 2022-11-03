@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class WeatherApp {
-	private final String GET_PLACES_URL = "https://api.meteo.lt/v1/places";
+	private final String GET_PLACES_URL = "https://api.meteo.lt/v1/places/";
 	protected WeatherAppUI ui = new WeatherAppUI();
 	
 	public void run() {
@@ -52,7 +52,7 @@ public class WeatherApp {
 	
 	private boolean runForecast( String name ) {
 		try {
-			URL url = new URL("https://api.meteo.lt/v1/places/" 
+			URL url = new URL( GET_PLACES_URL 
 						+ name 
 						+ "/forecasts/long-term");
 			Forecast forecast = new ObjectMapper().readValue( url , Forecast.class );
