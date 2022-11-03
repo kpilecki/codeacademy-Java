@@ -47,7 +47,7 @@ public class Forecast {
     			.filter( v -> Integer.parseInt( v.getForecastTimeUtc().substring( 8, 10 )) == day);
     }
     
-    private Stream<ForecastTimestamp> getFilteredSortedByTempStream(boolean reversed){
+    private Stream<ForecastTimestamp> getFilteredSortedByTempStream( boolean reversed ){
     	return getFilteredByDayStream()
     			.sorted( (a,b) -> a.getAirTemperature() > b.getAirTemperature() ? reversed ? -1 : 1 : reversed ? 1 : -1 );
     }

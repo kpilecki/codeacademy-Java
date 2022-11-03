@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class WeatherAppUI {
-	protected final static Scanner sc = new Scanner(System.in);
+	protected final static Scanner sc = new Scanner( System.in );
 
 	public String getUserInput( String msg ) {
 		System.out.println( msg );
@@ -24,7 +24,7 @@ public class WeatherAppUI {
 		
 	}
 
-	public void printCurrentPrediction(Forecast forecast) {
+	public void printCurrentPrediction( Forecast forecast ) {
 		Translations translation = new Translations();
 		ForecastTimestamp forecastTimestamp = forecast.getCurrentForecast();
 		
@@ -34,7 +34,7 @@ public class WeatherAppUI {
 		
 	}
 
-	public void printTemperatureForecast(Forecast forecast) {
+	public void printTemperatureForecast( Forecast forecast ) {
 		List<ForecastTimestamp> timestamps = forecast.getAllTodaysTimestamps();
 		timestamps.forEach( v -> {
 			System.out.println( v.getForecastTimeUtc().substring( 11, 13 ) 
@@ -45,7 +45,7 @@ public class WeatherAppUI {
 		
 	}
 
-	public void printMinAndMaxForToday(Forecast forecast) {
+	public void printMinAndMaxForToday( Forecast forecast ) {
 		
 		ForecastTimestamp minTemp = forecast.getLowestTemp();
 		System.out.println( Messages.MIN_MSG + minTemp.getForecastTimeUtc().substring( 11, 13 ) 
@@ -61,7 +61,7 @@ public class WeatherAppUI {
 		
 	}
 
-	public void printWindDirection(Forecast forecast) {
+	public void printWindDirection( Forecast forecast ) {
 		System.out.println( Messages.WIND_DIRECTION_MSG
 					+ translateWindDirection( forecast.getCurrentForecast().getWindDirection() ));
 		
