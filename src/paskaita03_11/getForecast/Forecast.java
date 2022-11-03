@@ -15,15 +15,13 @@ public class Forecast {
 	protected ArrayList<ForecastTimestamp> forecastTimestamps;
     
     public ForecastTimestamp getLowestTemp() {
-    	return getFilteredByDayStream()
-    			.sorted( (a,b) -> a.getAirTemperature() > b.getAirTemperature() ? 1 : -1 )
+    	return getFilteredSortedByTempStream( false )
     			.findFirst()
     			.orElse( null ); 
     }
     
     public ForecastTimestamp getHighestTemp() {
-    	return getFilteredByDayStream()
-    			.sorted( (a,b) -> a.getAirTemperature() > b.getAirTemperature() ? -1 : 1 )
+    	return getFilteredSortedByTempStream( true )
     			.findFirst()
     			.orElse( null ); 
     }
@@ -47,5 +45,10 @@ public class Forecast {
     	int day = LocalDateTime.now().getDayOfMonth();
     	return forecastTimestamps.stream()
     			.filter( v -> Integer.parseInt( v.getForecastTimeUtc().substring( 8, 10 )) == day);
+    }
+    
+    private Stream<ForecastTimestamp> getFilteredSortedByTempStream(boolean reversed){
+    	return getFilteredByDayStream()
+    			.sorted( (a,b) -> a.getAirTemperature() > b.getAirTemperature() ? reversed ? -1 : 1 : reversed ? 1 : -1 );
     }
 }
