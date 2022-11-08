@@ -8,26 +8,26 @@ import paskaita07_11.petSittingService.pojo.*;
 public class PetSittingService {
 	protected PetSittingServiceUI ui = new PetSittingServiceUI();
 	protected UserDB userDB = UserDB.getUserDB();
-	protected User user;
+
 	
 	public void run() {
 		bootstrapDumyData();
 		
 		while(true) {
 			String username = ui.getUsername();
-			user = userDB.getUser( username );
+			User user = userDB.getUser( username );
 			if( username.toUpperCase().equals( "Q" )) {
 				return;
 			} else if( user == null ) {
 				ui.printUserNotFound();
 				continue;
 			} else {
-				loginUser();
+				loginUser(user);
 			}
 		}
 	}
 
-	private void loginUser() {
+	private void loginUser( User user ) {
 		if( user.getPassword().equals( ui.getPassword() )) {
 			while(true) {
 				ui.printUserMainPage( user );
@@ -46,7 +46,7 @@ public class PetSittingService {
 		
 	}
 
-	private void runServiceProviderMenu( int choice) {
+	private void runServiceProviderMenu( int choice ) {
 		// TODO Auto-generated method stub
 		
 	}

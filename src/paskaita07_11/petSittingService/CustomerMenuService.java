@@ -1,5 +1,6 @@
 package paskaita07_11.petSittingService;
 
+import java.util.Arrays;
 import java.util.List;
 
 import paskaita07_11.petSittingService.data.Messages;
@@ -55,8 +56,6 @@ public class CustomerMenuService {
 				deletePet();
 			}
 		}
-		
-		
 	}
 
 	private void deletePet() {
@@ -66,11 +65,53 @@ public class CustomerMenuService {
 
 	private void editPets() {
 		List<Pet> pets = customer.getPets();
-		ui.printPets( pets );
-		int choice = ui.getUserNumericInput( Messages.CUSTOMER_CHOOSE_PET_MSG );
+		int choice = -1;
 		
-		//TODO
+		while( choice != 0 ) {
+			ui.printPets( pets );
+			choice = ui.getUserNumericInput( Messages.CUSTOMER_CHOOSE_PET_MSG );
+			editPet( pets.get( choice ) );
+		}
+	}
+
+	private void editPet( Pet pet ) {
+		int choice = -1;
 		
+		while( choice != 0 ) {
+			ui.printPets( Arrays.asList( pet ) );
+			ui.printEditPetPageMenu();
+			choice = ui.getUserChoice();
+			
+			switch( choice ) {
+			case 1:
+				editPetName( pet );
+				break;
+			case 2: 
+				editPetAge( pet );
+				break;
+			case 3: 
+				editPetType( pet );
+				break;
+			case 4:
+				editPetSpecialNeeds( pet );
+			}
+		}
+	}
+
+	private void editPetSpecialNeeds( Pet pet ) {
+		pet.setSpecialNeeds( ui.getUserTextInput( Messages.EDIT_PET_SPECIAL_NEEDS_MSG ));
+	}
+
+	private void editPetType( Pet pet ) {
+		pet.setType( ui.getPetType() );
+	}
+
+	private void editPetAge( Pet pet ) {
+		pet.setAge( ui.getUserNumericInput( Messages.EDIT_PET_AGE_MSG ));
+	}
+
+	private void editPetName( Pet pet ) {
+		pet.setName( ui.getUserTextInput( Messages.EDIT_PET_NAME_MSG ));
 	}
 
 	private void addPet() {

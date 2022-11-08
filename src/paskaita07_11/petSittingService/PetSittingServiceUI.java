@@ -71,14 +71,14 @@ public class PetSittingServiceUI {
 	}
 
 
-	public String getUserTextInput(String message) {
+	public String getUserTextInput( String message ) {
 		System.out.println( message );
 		
 		return sc.nextLine();
 	}
 
 
-	public int getUserNumericInput(String message) {
+	public int getUserNumericInput( String message ) {
 		System.out.println( message );
 		try {
 			return sc.nextInt();
@@ -90,16 +90,26 @@ public class PetSittingServiceUI {
 
 	public PetTypes getPetType() {
 		while(true) {
-			int count = 0;
-		
-			for( var type : PetTypes.values() ) {
-				System.out.println( "[" + count++ + "] -" + type );
-			}
+			printPetTypes();
 			int choice = getUserNumericInput( Messages.PET_CHOOSE_TYPE_MSG );
 			if( choice >= 0 && choice < PetTypes.values().length ) {
 				return PetTypes.values()[choice];
 			}
 		}
+	}
+	
+	public void printPetTypes() {
+		int count = 0;
+		
+		for( var type : PetTypes.values() ) { 
+			System.out.println( "[" + count++ + "] -" + type );
+		}
+	}
+
+
+	public void printEditPetPageMenu() {
+		System.out.println( Messages.EDIT_PET_MENU );
+		
 	}
 
 

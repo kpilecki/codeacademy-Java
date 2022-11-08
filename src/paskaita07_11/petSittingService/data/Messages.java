@@ -25,5 +25,13 @@ public class Messages {
 	public static final String PET_CHOOSE_TYPE_MSG = "Pasirinkite Augintinio Tipa";
 	public static final String CUSTOMER_GET_PET_SPECIAL_NEEDS_MSG = "Iveskite Augintio Prieziuros Reikalavimus";
 	public static final String CUSTOMER_CHOOSE_PET_MSG = "Pasirinkite Kuri Augintini Redaguoti";
+	public static final String EDIT_PET_MENU = "[1]- Keisti varda\n"
+										+ "[2]- Keisti amziu\n"
+										+ "[3]- Keisti tipa\n"
+										+ "[4]- Keisti papildomus reikalavimus\n"
+										+ "[Q]- Grizti\n";
+	public static final String EDIT_PET_NAME_MSG = "Iveskite varda: ";
+	public static final String EDIT_PET_AGE_MSG = "Iveskite augintinio amziu";
+	public static final String EDIT_PET_SPECIAL_NEEDS_MSG = "Iveskite papildomus reikalavimus: ";
 
 }
