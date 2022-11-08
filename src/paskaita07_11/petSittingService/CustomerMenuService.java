@@ -5,6 +5,7 @@ import java.util.List;
 
 import paskaita07_11.petSittingService.data.Messages;
 import paskaita07_11.petSittingService.pojo.Customer;
+import paskaita07_11.petSittingService.pojo.Order;
 import paskaita07_11.petSittingService.pojo.Pet;
 import paskaita07_11.petSittingService.pojo.Pet.PetBuilder;
 import paskaita07_11.petSittingService.pojo.User;
@@ -34,7 +35,18 @@ public class CustomerMenuService {
 	}
 
 	private void runCustomersOrdersPage() {
-		// TODO Auto-generated method stub
+		List<Order> orders = customer.getOrders();
+		int choice = 0;
+		
+		while( choice != -1 ) {
+			if( orders.isEmpty() ) {
+				ui.printMessage( Messages.NO_ORDERS_FOUND_ERR_MSG );
+				return;
+			} else {
+				orders.forEach( v -> ui.printMessage( v.toString() ) );
+				choice = ui.getUserNumericInput( Messages.ENTER_Q_TO_RETURN_MSG );
+			}
+		}
 		
 	}
 
@@ -59,8 +71,17 @@ public class CustomerMenuService {
 	}
 
 	private void deletePet() {
-		// TODO Auto-generated method stub
+		List<Pet> pets = customer.getPets();
+		int choice = 0;
 		
+		while( choice != -1 ) {
+			ui.printPets( pets );
+			choice = ui.getUserNumericInput( Messages.CUSTOMER_CHOOSE_PET_MSG );
+			
+			if( choice >= 0 && choice < pets.size() ) {
+				pets.remove( choice ); 
+			}
+		}
 	}
 
 	private void editPets() {

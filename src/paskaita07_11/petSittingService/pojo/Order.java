@@ -11,4 +11,12 @@ public class Order {
 	protected Address location;
 	protected LocalDateTime orderCreationDate;
 	protected boolean paymentStatus;
+	@Override
+	public String toString() {
+		return "Order [customer=" + customer + ", serviceProvider=" + serviceProvider + ", pet=" + pet + ", period="
+				+ period + ", price=" + price + ", location=" + location + ", orderCreationDate=" + orderCreationDate
+				+ ", paymentStatus=" + paymentStatus + "]";
+	}
+	
+	
 }

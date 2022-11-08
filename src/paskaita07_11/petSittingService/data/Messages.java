@@ -33,5 +33,7 @@ public class Messages {
 	public static final String EDIT_PET_NAME_MSG = "Iveskite varda: ";
 	public static final String EDIT_PET_AGE_MSG = "Iveskite augintinio amziu";
 	public static final String EDIT_PET_SPECIAL_NEEDS_MSG = "Iveskite papildomus reikalavimus: ";
+	public static final String NO_ORDERS_FOUND_ERR_MSG = "Atsiprasome, jus neturite jokiu uzsakymu";
+	public static final String ENTER_Q_TO_RETURN_MSG = "Iveskite Q kad grizti";
 
 }
