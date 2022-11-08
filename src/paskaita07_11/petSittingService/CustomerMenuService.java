@@ -1,5 +1,7 @@
 package paskaita07_11.petSittingService;
 
+import java.util.List;
+
 import paskaita07_11.petSittingService.data.Messages;
 import paskaita07_11.petSittingService.pojo.Customer;
 import paskaita07_11.petSittingService.pojo.Pet;
@@ -38,7 +40,7 @@ public class CustomerMenuService {
 	private void runCustomerPetsPage() {
 		int choice = -1;
 		while( choice != 0 ) {
-			ui.printPets( customer );
+			ui.printPets( customer.getPets() );
 			ui.printCustomerPetsPageMenu();
 			choice = ui.getUserChoice();
 			
@@ -63,7 +65,11 @@ public class CustomerMenuService {
 	}
 
 	private void editPets() {
-		// TODO Auto-generated method stub
+		List<Pet> pets = customer.getPets();
+		ui.printPets( pets );
+		int choice = ui.getUserNumericInput( Messages.CUSTOMER_CHOOSE_PET_MSG );
+		
+		//TODO
 		
 	}
 

@@ -24,5 +24,6 @@ public class Messages {
 	public static final String CUSTOMER_GET_PET_AGE_MSG = "Iveskite Augintinio Amziu:";
 	public static final String PET_CHOOSE_TYPE_MSG = "Pasirinkite Augintinio Tipa";
 	public static final String CUSTOMER_GET_PET_SPECIAL_NEEDS_MSG = "Iveskite Augintio Prieziuros Reikalavimus";
+	public static final String CUSTOMER_CHOOSE_PET_MSG = "Pasirinkite Kuri Augintini Redaguoti";
 
 }

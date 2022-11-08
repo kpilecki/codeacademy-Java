@@ -52,8 +52,7 @@ public class PetSittingServiceUI {
 		}
 	}
 
-	public void printPets( Customer customer ) {
-		List<Pet> pets = customer.getPets();
+	public void printPets( List<Pet> pets ) {
 		if( pets.size() == 0 ) {
 			System.out.println( Messages.CUSTOMER_NO_PETS_MSG );
 		} else {
@@ -61,6 +60,7 @@ public class PetSittingServiceUI {
 			for( var pet : pets ) {
 				System.out.println( "[" + count++ + "]- " + pet );
 			}
+			System.out.println();
 		}
 		
 	}
