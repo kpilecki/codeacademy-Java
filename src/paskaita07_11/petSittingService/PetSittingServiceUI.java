@@ -13,25 +13,6 @@ import java.util.Scanner;
 public class PetSittingServiceUI {
 	public static Scanner sc = new Scanner( System.in );
 	
-	
-	public String getUsername() {
-		System.out.println( Messages.ENTER_USERNAME_MSG );
-		
-		return sc.nextLine();
-	}
-
-
-	public void printUserNotFound() {
-		System.out.println( Messages.USER_NOT_FOUND_MSG );
-		
-	}
-
-
-	public String getPassword() {
-		System.out.println( Messages.ENTER_PASSWORD_MSG );
-		return sc.nextLine();
-	}
-
 
 	public void printUserMainPage( User user ) {
 		System.out.println( Messages.GREETING_MSG + user.getName() );
@@ -94,7 +75,7 @@ public class PetSittingServiceUI {
 		int count = 0;
 		
 		for( var type : PetTypes.values() ) { 
-			System.out.println( "[" + count++ + "] -" + type );
+			System.out.println( "[" + count++ + "] - " + type );
 		}
 	}
 

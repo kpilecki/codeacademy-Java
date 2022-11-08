@@ -2,6 +2,7 @@ package paskaita07_11.petSittingService;
 
 import java.util.Arrays;
 
+import paskaita07_11.petSittingService.data.Messages;
 import paskaita07_11.petSittingService.data.UserDB;
 import paskaita07_11.petSittingService.pojo.*;
 
@@ -14,12 +15,12 @@ public class PetSittingService {
 		bootstrapDumyData();
 		
 		while(true) {
-			String username = ui.getUsername();
+			String username = ui.getUserTextInput( Messages.ENTER_USERNAME_MSG );
 			User user = userDB.getUser( username );
 			if( username.toUpperCase().equals( "Q" )) {
 				return;
 			} else if( user == null ) {
-				ui.printUserNotFound();
+				ui.printMessage( Messages.USER_NOT_FOUND_MSG );
 				continue;
 			} else {
 				loginUser(user);
@@ -28,7 +29,7 @@ public class PetSittingService {
 	}
 
 	private void loginUser( User user ) {
-		if( user.getPassword().equals( ui.getPassword() )) {
+		if( user.getPassword().equals( ui.getUserTextInput( Messages.ENTER_PASSWORD_MSG ) )) {
 			while(true) {
 				ui.printUserMainPage( user );
 				int choice = ui.getUserNumericInput("");
