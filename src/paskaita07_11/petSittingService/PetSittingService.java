@@ -31,9 +31,9 @@ public class PetSittingService {
 		if( user.getPassword().equals( ui.getPassword() )) {
 			while(true) {
 				ui.printUserMainPage( user );
-				int choice = ui.getUserChoice();
+				int choice = ui.getUserNumericInput("");
 				
-				if( choice == 0 ) {
+				if( choice == -1 ) {
 					return;
 				} else if( user instanceof Customer ) {
 					new CustomerMenuService().run( user, choice );
@@ -41,7 +41,6 @@ public class PetSittingService {
 					runServiceProviderMenu( choice );
 				}
 			}
-			
 		} 
 		
 	}

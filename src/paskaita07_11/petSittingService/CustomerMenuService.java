@@ -39,11 +39,11 @@ public class CustomerMenuService {
 	}
 
 	private void runCustomerPetsPage() {
-		int choice = -1;
-		while( choice != 0 ) {
+		int choice = 0;
+		while( choice != -1 ) {
 			ui.printPets( customer.getPets() );
 			ui.printCustomerPetsPageMenu();
-			choice = ui.getUserChoice();
+			choice = ui.getUserNumericInput("");
 			
 			switch( choice ) {
 			case 1:
@@ -65,22 +65,25 @@ public class CustomerMenuService {
 
 	private void editPets() {
 		List<Pet> pets = customer.getPets();
-		int choice = -1;
+		int choice = 0;
 		
-		while( choice != 0 ) {
+		while( choice != -1 ) {
 			ui.printPets( pets );
 			choice = ui.getUserNumericInput( Messages.CUSTOMER_CHOOSE_PET_MSG );
-			editPet( pets.get( choice ) );
+			
+			if( choice >= 0 && choice < pets.size() ) {
+				editPet( pets.get( choice ) ); 
+			}
 		}
 	}
 
 	private void editPet( Pet pet ) {
-		int choice = -1;
+		int choice = 0;
 		
-		while( choice != 0 ) {
+		while( choice != -1 ) {
 			ui.printPets( Arrays.asList( pet ) );
 			ui.printEditPetPageMenu();
-			choice = ui.getUserChoice();
+			choice = ui.getUserNumericInput("");
 			
 			switch( choice ) {
 			case 1:

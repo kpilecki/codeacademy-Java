@@ -44,14 +44,6 @@ public class PetSittingServiceUI {
 		
 	}
 
-	public int getUserChoice() {
-		try {
-			return sc.nextInt();
-		} catch (InputMismatchException e ) {
-			return 0;
-		}
-	}
-
 	public void printPets( List<Pet> pets ) {
 		if( pets.size() == 0 ) {
 			System.out.println( Messages.CUSTOMER_NO_PETS_MSG );
@@ -83,7 +75,7 @@ public class PetSittingServiceUI {
 		try {
 			return sc.nextInt();
 		} catch (InputMismatchException e ) {
-			return 0;
+			return -1;
 		}
 	}
 
