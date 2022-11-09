@@ -6,13 +6,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class JdbcConnector {
+public class JdbcConnectorService {
 	private final String databasePath = "jdbc:mysql://localhost:3306/sakila";
 	private final String user = "root";
 	private final String password = "java";
 	private Connection con;
 	
-	public JdbcConnector() {
+	public JdbcConnectorService() {
 		createConnection();
 	}
 	
@@ -41,12 +41,29 @@ public class JdbcConnector {
 		}
 	}
 	
-	public ResultSet makeQuery( String query ) {
+	public ResultSet makeGetQuery( String query ) {
 		try {
 			return getStatement().executeQuery( query );
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
+		}
+	}
+	
+	public int makeInsertQuery( String query ) {
+		try {
+			return getStatement().executeUpdate( query );
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+	
+	public void clearTable( String table ) {
+		try {
+			getStatement().executeUpdate( "DELETE FROM " + table );
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
 }

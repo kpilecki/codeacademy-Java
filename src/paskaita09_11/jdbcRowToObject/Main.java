@@ -9,8 +9,9 @@ public class Main {
 	public static void main(String[] args) {
 		ArrayList<Actor> actors = new ArrayList<>();
 		String query = "SELECT * FROM actors_movie_count";
+		JdbcConnectorService connector = new JdbcConnectorService();
 		
-		ResultSet results = new JdbcConnector().makeQuery( query );
+		ResultSet results = connector.makeGetQuery( query );
 		
 		try {
 			while( results.next() ) {
@@ -25,6 +26,20 @@ public class Main {
 		}
 		
 		actors.forEach( System.out::println );
+		
+		int id = 1;
+		connector.clearTable( "test" );
+		
+		for( var actor : actors ) {
+			connector.makeInsertQuery( "INSERT INTO test (id, name, surname, movie_count)"
+					+ "VALUES ("
+					+ "'"
+					+ id++
+					+ "'"
+					+", "
+					+ actor 
+					+");");
+		}
 
 	}
 
