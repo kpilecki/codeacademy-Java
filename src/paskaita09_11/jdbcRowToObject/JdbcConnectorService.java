@@ -5,14 +5,16 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.concurrent.TimeoutException;
+
 
 public class JdbcConnectorService {
-	private final String databasePath = "jdbc:mysql://localhost:3306/sakila";
-	private final String user = "root";
-	private final String password = "java";
-	private Connection con;
+	protected final String databasePath = "jdbc:mysql://localhost:3306/sakila";
+	protected final String user = "root";
+	protected final String password = "java";
+	protected Connection con;
 	
-	public JdbcConnectorService() {
+	public JdbcConnectorService() throws TimeoutException {
 		createConnection();
 	}
 	
@@ -24,11 +26,17 @@ public class JdbcConnectorService {
 		}
 	}
 	
-	private void createConnection() {
-		try {
-			con = DriverManager.getConnection( databasePath, user, password);
-		} catch (SQLException e) {
-			e.printStackTrace();
+	private void createConnection() throws TimeoutException {
+		int tries = 0;
+		while( tries++ < 10 && con == null ) {
+			try {
+				con = DriverManager.getConnection( databasePath, user, password);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		if( con == null ) {
+			throw new TimeoutException( "Can't connect to the database ");
 		}
 	}
 	
@@ -55,7 +63,7 @@ public class JdbcConnectorService {
 			return getStatement().executeUpdate( query );
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return 0;
+			return -1;
 		}
 	}
 	
