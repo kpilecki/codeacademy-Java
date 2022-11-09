@@ -9,6 +9,7 @@ public class Actor {
 	private String firstName;
 	private String lastName;
 	private int movieCount;
+	private int id;
 	@Override
 	public String toString() {
 		return "'" + firstName + "', '" + lastName + "', '" + movieCount + "'";
